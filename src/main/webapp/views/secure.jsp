@@ -11,6 +11,8 @@
 <title>You are in!</title>
 </head>
 <body><h1>You made it!</h1>
+
+
 <a href="<c:url value="/logout" />"> Now logout </a>
 
 </body>

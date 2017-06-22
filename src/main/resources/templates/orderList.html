@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>List of Orders</title>
+</head>
+<body>
+
+<table border="1">
+    <tr>
+        <th>Order Date</th>
+        <th>Total Items</th>
+        <th>Total Amount</th>
+        <th></th>
+    </tr>
+    <!--/*@thymesVar id="o" type="com.ashokn.model.Order"*/-->
+    <tr th:each="o : ${orders}">
+        <td th:text="${o.orderDate}">today</td>
+        <td th:text="${o.quantity}">today</td>
+        <td th:text="${o.totalAmount}">amount</td>
+        <!--<td><button th:onclick="'javascript:showOrders(' + ${o.id} + ')'">view</button></td>-->
+    </tr>
+</table>
+</body>
+</html>

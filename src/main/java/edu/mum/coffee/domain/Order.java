@@ -1,5 +1,7 @@
 package edu.mum.coffee.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -27,7 +29,9 @@ public class Order {
 	private Date orderDate;
 
 	@OneToMany(mappedBy = "order", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JsonManagedReference
 	private List<Orderline> orderLines = new ArrayList<Orderline>();
+
 	@OneToOne
 	private Person person;
 
@@ -37,6 +41,10 @@ public class Order {
 
 	public List<Orderline> getOrderLines() {
 		return Collections.unmodifiableList(orderLines);
+	}
+
+	public void setOrderLines(List<Orderline> orderLines) {
+		this.orderLines = orderLines;
 	}
 
 	public Person getPerson() {

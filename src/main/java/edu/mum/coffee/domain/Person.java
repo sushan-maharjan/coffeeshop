@@ -1,15 +1,13 @@
 package edu.mum.coffee.domain;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.OneToOne;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "users")
 public class Person {
 	@Id
 	@GeneratedValue
@@ -20,18 +18,50 @@ public class Person {
 	@OneToOne(cascade = CascadeType.ALL)
 	private Address address;
 	private String phone;
-	private boolean enable;
+	private boolean enabled = true;
+	private String username;
+	private String password;
+	@OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
+	@JsonManagedReference
+	private List<Authority> authorities;
+
+	public List<Authority> getAuthorities() {
+		return authorities;
+	}
+
+	public void setAuthorities(List<Authority> authorities) {
+		this.authorities = authorities;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 	public long getId() {
 		return id;
 	}
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	public boolean isEnable() {
-		return enable;
+		return enabled;
 	}
 
 	public void setEnable(boolean enable) {
-		this.enable = enable;
+		this.enabled = enable;
 	}
 
 	public String getFirstName() {

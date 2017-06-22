@@ -70,7 +70,7 @@ public class PersonServiceTest {
 		}
 	}
 
-	@Test
+	/*@Test
 	public void testFindByEmail() {
 		List<Person> persons = personService.findByEmail("SOMETHING ELSE");
 		if (!persons.isEmpty()) {
@@ -81,7 +81,7 @@ public class PersonServiceTest {
 				fail("Retrieved Person values are different");
 			}
 		}
-	}
+	}*/
 
 	@Test
 	public void testFindById() {

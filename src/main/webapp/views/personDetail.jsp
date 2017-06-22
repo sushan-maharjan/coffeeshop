@@ -4,7 +4,7 @@
     <title>Person Details</title>
 </head>
 <body>
-<form action="/person/${person.id}" method="post">
+<form action="/updatePerson" method="put">
     <table>
 
         <tr>
@@ -20,7 +20,12 @@
             <td><input type="email" name="email" value="${person.email}"/></td>
         </tr>
     </table>
+    <input type="hidden" name="id" value="${person.id}"/>
+
     <input type="submit" value="Update">
+</form>
+<form action="/deletePerson/${person.id}" method="delete">
+    <input type="submit" value="Delete"/>
 </form>
 </body>
 </html>

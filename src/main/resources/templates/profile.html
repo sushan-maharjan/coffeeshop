@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Edit Profile</title>
+</head>
+<body>
+<form method="post" action="/updateProfile" th:action="@{/updateProfile}">
+
+    <input type="text" placeholder="Email" class="form-control" name="email" th:value="${user.email}"/>
+    <br/>
+
+    <input type="text" name="username" th:value="${user.username}" th:readonly="true" />
+    <br/>
+
+    <input type="password" placeholder="Password" class="form-control" name="password" th:value="${user.password}"/>
+    <br/>
+
+    <input type="text" placeholder="First Name"  name="firstName" th:value="${user.firstName}"/>
+    <br/>
+
+        <input type="text" placeholder="Last Name"  name="lastName" th:value="${user.lastName}"/>
+    <br/>
+
+    <input type="tel" placeholder="Phone"  name="phone" th:value="${user.phone}"/>
+    <br/>
+
+    <input type="text" placeholder="City" name="address.city" th:value="${user.address.city}"/>
+    <br/>
+
+    <input type="text" placeholder="State"  name="address.state" th:value="${user.address.state}"/>
+    <br/>
+
+    <input type="tel" placeholder="Country"  name="address.country" th:value="${user.address.country}"/>
+    <br/>
+
+    <input type="tel" placeholder="Zip Code" name="address.zipcode" th:value="${user.address.zipcode}"/>
+    <br/>
+
+    <input type="hidden" name="id" th:value="${user.id}"/>
+
+    <button type="submit">Update</button>
+</form>
+</body>
+</html>

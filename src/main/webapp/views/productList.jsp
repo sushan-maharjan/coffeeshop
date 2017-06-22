@@ -18,10 +18,10 @@
                 <td>${product.productName}</td>
                 <td>${product.price}</td>
                 <td>${product.productType}</td>
-                <td><a href="<c:url value="/product/${product.id}"/>">Edit</a> </td>
+                <td><a href="<c:url value="/productDetail/${product.id}"/>">Edit</a> </td>
             </tr>
         </c:forEach>
     </table>
-    <a href="<c:url value="/product/new"/>">Add Product</a>
+    <a href="<c:url value="/addProduct"/>">Add Product</a>
 </body>
 </html>

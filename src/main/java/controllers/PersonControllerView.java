@@ -1,3 +1,4 @@
+/*
 package controllers;
 
 import edu.mum.coffee.domain.Person;
@@ -7,41 +8,39 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+*/
 /**
  * Created by trauma_sushan on 6/18/2017.
- */
+ *//*
+
 @Controller
 public class PersonControllerView {
     @Autowired
     PersonService personService;
 
-    @GetMapping("/person/new")
+    @GetMapping("/addPerson")
     public String addPerson(){
         return "addPerson";
     }
 
-   @PostMapping("/person")
+   @PostMapping("/createPerson")
+   @PutMapping("updatePerson")
     public String createPerson(Person person){
        personService.savePerson(person);
-       return "redirect:/person";
+       return "redirect:/personList";
    }
 
-   @DeleteMapping("/person/{id}")
+   @DeleteMapping("/deletePerson/{id}")
     public String deletePerson(@PathVariable long id){
         personService.removePerson(personService.findById(id));
-        return "redirect:/person";
+        return "redirect:/personList";
    }
 
-   @PutMapping("/person")
-    public String updatePerson(Person person){
-        personService.savePerson(person);
-        return "redirect:/person";
-   }
-
-    @GetMapping("/person/{id}")
+    @GetMapping("/getPerson/{id}")
     public String getPerson(@PathVariable long id, Model model){
         model.addAttribute("person", personService.findById(id));
         return "personDetail";
     }
 }
 
+*/

@@ -4,7 +4,7 @@
     <title>Product Details</title>
 </head>
 <body>
-<form action="/product/${product.id}" method="post">
+<form action="/updateProduct" method="put">
     <table>
 
         <tr>
@@ -20,9 +20,10 @@
             <td><input type="text" name="productType" value="${product.productType}"/></td
         </tr>
     </table>
+    <input type="hidden" name="id" value="${product.id}">
     <input type="submit" value="Update">
 </form>
-<form action="/product/${product.id}" method="delete">
+<form action="/deleteProduct/${product.id}" method="delete">
     <button type="submit">Delete</button>
 </form>
 </body>

@@ -20,9 +20,11 @@
             <td>${order.id}</td>
             <td>${order.orderDate}</td>
             <td><a class="btn btn-info " href="#">Order Line</a></td>
+            <
         </tr>
     </c:forEach>
     </tbody>
 </table>
+<a href="<c:url value="/addOrder/new"/> ">Add Order </a>
 </body>
 </html>

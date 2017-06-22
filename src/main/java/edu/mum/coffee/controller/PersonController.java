@@ -21,8 +21,8 @@ public class PersonController {
 	@Autowired
 	PersonService personService;
 
-//	@GetMapping("/person")
-//	public List<Person> getAllPerson(){ return personService.findAll(); }
+	@GetMapping("/person")
+	public List<Person> getAllPerson(){ return personService.findAll(); }
 
 	@GetMapping("/person/{id}")
 	public Person getPerson(@PathVariable long id){
@@ -45,7 +45,7 @@ public class PersonController {
 	}
 
 	@GetMapping("person/byEmail/{email}")
-	public List<Person> getPersonByEmail(@PathVariable String email){
+	public Person getPersonByEmail(@PathVariable String email){
 		return personService.findByEmail(email);
 	}
 	

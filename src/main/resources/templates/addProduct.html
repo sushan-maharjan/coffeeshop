@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>Add a Product</title>
 </head>
 <body>
@@ -17,7 +17,12 @@
         </tr>
         <tr>
             <td>Product Type:</td>
-            <td><input type="text" name="productType" /> </td>
+            <td>
+            <select name="productType" id="proType" required="required">
+                <option value="" selected="selected" disabled="disabled">---select Product Type ---</option>
+                <option th:each="p : ${productTypes}" th:value="${p}" th:text="${p}"></option>
+            </select>
+            </td>
         </tr>
     </table>
     <input type="submit" value="Submit"/>

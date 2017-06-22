@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>List of Person</title>
+</head>
+<body>
+    <table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Last Updated</th>
+        <th>Addres</th>
+        <th>Authorities</th>
+    </tr>
+    <!--/*@thymesVar id="u" type="com.ashokn.model.Person"*/-->
+    <tr th:each="u : ${users}">
+        <td th:text="${user.firstName} +' '+ ${user.lastName}">Latte</td>
+        <td th:text="${user.email}">BREAKFAST</td>
+        <td th:text="${user.phone}">100</td>
+        <td th:text="${#calendars.format(u.updatedAt,'dd/MMM/yyyy')}">21 jan 2017</td>
+        <th th:text="${user.address.city} +', '+ ${user.address.state} +', '+ ${user.address.country} +' - '+ ${user.address.zipcode}"></th>
+        <td>
+            <table>
+                <tr th:each="auth: ${user.authorities}">
+                    <td th:text="${auth.authority}">NONE</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<br/>
+    <a th:href="@{/addPerson}">Add Person </a>
+</body>
+</html>

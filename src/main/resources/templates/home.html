@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Home Page</title>
+</head>
+<body>
+<h2>List of Products</h2>
+<a th:href="@{/addProduct}">Add Product</a>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Price</th>
+        <th></th>
+        <!--<th></th>-->
+    </tr>
+    <tr th:each="product : ${products}">
+        <td th:text="${product.productName}">Muffin</td>
+        <td th:text="${product.productType}">BREAKFAST</td>
+        <td th:text="${product.price}">10</td>
+<!--        <td>
+            <button th:onclick="'javascript:showProduct(' + ${p.id} + ')'">view</button>
+            &lt;!&ndash;<a href="#" th:href="@{/product/{path}(path=${p.id})}">a</a>&ndash;&gt;
+        </td>-->
+        <th>
+            <form method="post" action="/saveOrder" th:action="@{/saveOrder}">
+                <input type="hidden" name="product_id" th:value="${product.id}"/>
+                <input type="number" placeholder="Quantity" name="quantity" required="required"/>
+                <button type="submit">Order</button>
+            </form>
+        </th>
+    </tr>
+</table>
+<br/>
+<a th:href="@{/login}">Login</a>
+<br/>
+<a th:href="@{/profile}">Edit Profile</a>
+<br/>
+<br/>
+<div th:if="${#authorization.expression('isAuthenticated()')}">
+    <form method="post" th:action="@{/logout}">
+        <button type="submit">LOGOUT</button>
+    </form>
+</div>
+</body>
+</html>

@@ -43,7 +43,7 @@ public class OrderServiceTest {
 	final static int TEST_NumberOfProducts = 20;
 	final static int TEST_NumberOfPersons = 3;
 
-	@Before
+	/*@Before
 	public void setUp() throws Exception {
 		// Remove previous objects
 		deleteTestObjects();
@@ -76,21 +76,21 @@ public class OrderServiceTest {
 		for (int i = 1; i < TEST_NumberOfOrders; i++) {
 			testOrder[i] = orderService.save(testOrder[i]);
 		}
-	}
+	}*/
 
 	@After
 	public void tearDown() throws Exception {
 		deleteTestObjects();
 	}
 
-	@Test
+/*	@Test
 	public void testSave() {
 		Order stored = orderService.save(testOrder[0]);
 		Order saved = orderService.findById(stored.getId());
 		if (!compareOrder(testOrder[0], saved)) {
 			fail("Not storing or retrieving Person");
 		}
-	}
+	}*/
 
 	@Test
 	public void testFindById() {
